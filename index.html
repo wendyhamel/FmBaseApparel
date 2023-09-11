@@ -8,26 +8,40 @@
   
   <title>Frontend Mentor | Base Apparel coming soon page</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!--   Tailwind play cdn and local tailwind config file -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="src/tailwind.config.js"></script>
+
+  <!-- Alpine.js  -->
+  <!-- Alpine Plugins -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Alpine.js core  -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 </head>
-<body>
+<body x-data="errors()">
 
   We're coming soon
 
   Hello fellow shoppers! We're currently building our new fashion store. 
   Add your email below to stay up-to-date with announcements and our launch deals.
+  <form>
+    <label for="email" class="sr-only"></label>
+    <input id="email" type="text" x-model="email" placeholder="Email Address" required>
+    <p x-text="validation.email.message"></p>
+    <button type="button" class="disabled:cursor-not-allowed" @click="validate('email')">Submit</button>
+  </form>
 
-  Email Address
-  
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </p>
+  <footer class="fixed bottom-0 inset-x-0 text-center text-xs py-2 bg-blue-dark/80 text-blue-pale opacity-0 translate-y-2 hover:opacity-100 hover:translate-y-0 transform transition ease-in-out duration-150">
+    Challenge by <a class="underline hover:text-gradient-end" href="https://www.frontendmentor.io/challenges/base-apparel-coming-soon-page-5d46b47f8db8a7063f9331a0" target="_blank">Frontend Mentor</a>.
+    Coded by <a class="underline hover:text-gradient-end" href="https://www.frontendmentor.io/profile/wendyhamel" target="_blank">Wendy Hamel</a>.
   </footer>
 </body>
+<script type="text/javascript" src="src/errorHandling.js"></script>
 </html>
