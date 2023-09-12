@@ -21,33 +21,38 @@
 
 </head>
 <body x-data="errors()" class="antialiased">
-  <main class="min-h-screen max-w-screen-2xl mx-auto md:grid md:grid-cols-2">
-   <section class="mt-9 grid text-center text-red-des bg-gradient-to-b from-main-gradient-start to-main-gradient-end md:bg-cover md:bg-no-repeat md:bg-[url('./images/bg-pattern-desktop.svg')]">
-     <img class="h-5 mx-9" src="images/logo.svg" alt="Base Apparel">
-     <img class="object-cover w-full md:hidden" src="./images/hero-mobile.jpg"/>
-     <h1 class="text-5xl uppercase tracking-widest font-light">We're <span class="text-red-dark font-normal">coming soon</span></h1>
-     <p class="mx-6 font-sm font-semibold">
+  <main class="min-h-screen max-w-screen-2xl pt-9 mx-auto md:pt-0 md:flex bg-gradient-to-br from-main-gradient-start to-main-gradient-end">
+   <section class="grid text-center text-red-des md:flex md:flex-col md:justify-center md:grow md:text-start md:px-8 md:bg-cover md:bg-no-repeat md:bg-[url('./images/bg-pattern-desktop.svg')] lg:px-40">
+     <img class="h-5 mx-9 md:h-auto md:w-40 md:mx-1" src="images/logo.svg" alt="Base Apparel">
+     <img class="object-cover object-left-top mt-8 mb-16 w-full max-h-80 md:hidden" src="./images/hero-mobile.jpg"/>
+     <h1 class="text-[2.6rem] uppercase tracking-[0.25em] leading-none font-light md:px-1 md:mt-32 lg:text-[4.1rem] lg:leading-[1.05]">We're <br/><span class="text-red-dark font-normal">coming <br/>soon</span></h1>
+     <p class="mx-8 mt-4 text-[0.9rem] sm:max-w-md sm:mx-auto md:mx-1 md:text-base md:mt-8">
        Hello fellow shoppers! We're currently building our new fashion store.
        Add your email below to stay up-to-date with announcements and our launch deals.
      </p>
-     <form class="flex">
-       <label for="email" class="sr-only"></label>
-       <div class="flex pl-8 py-3 pr-16 rounded-full border border-red-des" :class="{'ring-1 ring-inset ring-red-soft border-red-soft' : validation.email.invalid || validation.required.invalid}" >
-         <input class="bg-transparent text-red-dark font-semibold focus:outline-none placeholder:font-normal placeholder:text-red-des" id="email" type="text" x-model="email" placeholder="Email Address" required>
-         <img class="shrink-0" x-show="validation.email.invalid || validation.required.invalid" src="./images/icon-error.svg" alt="exclamation mark">
-       </div>
-       <button
-           type="button"
-           class="-translate-x-12 rounded-full py-3 px-10 shadow-lg shadow-red-des bg-gradient-to-br from-gradient-start to-gradient-end hover:shadow-xl hover:shadow-red-des hover:from-gradient-start hover:via-gradient-start hover:to-gradient-start focus:outline-none focus:from-gradient-start focus:via-gradient-start focus:to-gradient-start active:from-gradient-start active:via-gradient-start active:to-gradient-start disabled:cursor-not-allowed"
-           @click="validate('email')"
-       >
-         <img src="./images/icon-arrow.svg" alt="submit">
-       </button>
-     </form>
-     <p class="text-red-soft" x-text="validation.email.message"></p>
+     <div class="pt-8 pb-12 px-8 overflow-hidden md:pl-0 md:max-w-lg md:pl-1 md:pr-14 lg:mt-4 lg:mb-8">
+       <form class="pb-1">
+         <label for="email" class="relative flex w-f pr-4">
+           <div class="flex grow py-3 pl-6 pr-14 rounded-full border border-red-des md:pl-8 md:py-4" :class="{'ring-1 ring-inset ring-red-soft border-red-soft' : validation.email.invalid || validation.required.invalid}" >
+             <input class="grow bg-transparent text-sm text-red-dark font-semibold focus:outline-none placeholder:font-normal placeholder:text-red-des lg:text-base" id="email" type="text" x-model="email" placeholder="Email Address" required>
+             <div class="w-8">
+               <img class="shrink-0" style="display:none" x-show="validation.email.invalid || validation.required.invalid" src="./images/icon-error.svg" alt="exclamation mark">
+             </div>
+           </div>
+           <button
+               type="button"
+               class="absolute h-full right-0 rounded-full py-2.5 px-6 shadow-lg shadow-red-des/80 bg-gradient-to-br from-gradient-start to-gradient-end md:px-10 md:py-4 lg:py-5 hover:shadow-xl hover:shadow-red-des hover:from-gradient-start hover:via-gradient-start hover:to-gradient-start focus:outline-none focus:from-gradient-start focus:via-gradient-start focus:to-gradient-start active:from-gradient-start active:via-gradient-start active:to-gradient-start disabled:cursor-not-allowed"
+               @click="validate('email')"
+           >
+             <img class="shrink-0 w-full h-full" src="./images/icon-arrow.svg" alt="submit">
+           </button>
+         </label>
+       </form>
+       <p class="text-red-soft pr-12" x-text="validation.email.message"></p>
+     </div>
    </section>
     <div class="hidden md:block">
-      <img class="md:object-cover md:object-left-top md:w-full md:h-full" src="./images/hero-desktop.jpg"/>
+      <img class="md:object-cover md:object-left-top md:w-full md:h-full md:min-w-[25vw]" src="./images/hero-desktop.jpg"/>
     </div>
   </main>
 
