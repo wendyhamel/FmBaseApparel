@@ -35,7 +35,7 @@
          <label for="email" class="relative flex w-f pr-4">
            <div class="flex grow py-3 pl-6 pr-14 rounded-full border border-red-des md:pl-8 md:py-4" :class="{'ring-1 ring-inset ring-red-soft border-red-soft' : validation.email.invalid || validation.required.invalid}" >
              <input class="grow bg-transparent text-sm text-red-dark font-semibold focus:outline-none placeholder:font-normal placeholder:text-red-des lg:text-base" id="email" type="text" x-model="email" placeholder="Email Address" required>
-             <div class="w-8">
+             <div class="w-8 md:w-14">
                <img class="shrink-0" style="display:none" x-show="validation.email.invalid || validation.required.invalid" src="./images/icon-error.svg" alt="exclamation mark">
              </div>
            </div>
